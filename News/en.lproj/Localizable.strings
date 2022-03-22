@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  News
+
+  Created by Bhavitha on 21/03/22.
+  
+*/
+
+"email" = "Email";
+"password" = "Password";
+"forgot_password" = "Forgot Password";
+"confirm_password" = "Confirm Password";
+"signin" = "Sign In";
+"signup" = "Signup";
+"donot_have_account" = "Don't have an account?";
+"news_feed" = "News Feed";
+"hacker_news" = "Hacker News";
+"logo" = "logo";
+"error" = "Error";
+"invalid_email" = "Invalid Email";
+"invalid_password" = "Invalid Password";
+"invalid input"= "Invalid Input";
+"invalid data" = "Invalid Details";
