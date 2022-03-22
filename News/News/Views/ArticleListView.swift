@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ArticleListView: View {
     
+    @Environment(\.openURL) var openURL
     @StateObject var viewModel: ArticleViewModel = ArticleViewModel(service: ArticleAPIService())
     var body: some View {
         
@@ -24,6 +25,9 @@ struct ArticleListView: View {
             case .success(let content):
                     List(content) { article in
                         ArticleView(article: article)
+                            .onTapGesture {
+                                load(url: article.url)
+                            }
                     }
                     .navigationBarTitle("H4XOR NEWS")
             }
@@ -31,6 +35,14 @@ struct ArticleListView: View {
         .onAppear {
             self.viewModel.loadArticles()
         }
+    }
+    
+    func load(url: String?) {
+        guard let urlString = url,
+              let  url = URL(string: urlString) else {
+            return
+        }
+        openURL(url)
     }
 
 }
