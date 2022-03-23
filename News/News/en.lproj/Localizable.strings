@@ -21,3 +21,6 @@
 "invalid_password" = "Invalid Password";
 "invalid input"= "Invalid Input";
 "invalid data" = "Invalid Details";
+"signout" = "Signout";
+"signout_success" = "Signout Success";
+"signout_failure" = "Singout Failed";

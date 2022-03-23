@@ -13,15 +13,16 @@ extension Color {
         return Color(red: 220.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 1.0)
     }
     
- /*   static var customBlue: Color {
-        return Color(UIColor(red: 35/255, green: 69/255, blue: 134/255, alpha: 1.0))
-    }*/
-    
-    static var themePrimaryColor: Color {
-        return Color(red: 72/255, green: 147/255, blue: 174/255)
+    static var primaryColor: Color {
+        return Color(red: 252/255, green: 140/255, blue: 0/255)
     }
     
-    static var themeSecondaryColor: Color {
-        Color(red: 118/255, green: 200/255, blue: 224/255)
+    static var secondaryColor: Color {
+        return Color(red: 255/255, green: 165/255, blue: 0/255)
+    }
+    
+    static var darkOrange: Color {
+        return Color(red: 255/255, green: 69/255, blue: 0/255)
+        
     }
 }

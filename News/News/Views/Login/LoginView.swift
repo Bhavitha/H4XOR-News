@@ -36,54 +36,43 @@ struct LoginView: View {
     @State private var isActive = false
     @EnvironmentObject var loginViewModel: LoginViewModel
     
-    let appGradientColor = Gradient(colors: [Color.themePrimaryColor, Color.themeSecondaryColor, Color.themePrimaryColor])
+    let appGradientColor = Gradient(colors: [Color.primaryColor, Color.secondaryColor, Color.primaryColor])
     
     var body: some View {
         VStack() {
             Text(LocalizedStringKey("hacker_news"))
                 .font(.largeTitle).foregroundColor(.white)
                 .padding([.top, .bottom], 40)
-
+                .shadow(radius: 10.0, x: 20, y: 10)
             
             Image("logo")
+                .resizable()
                 .foregroundColor(.red)
                 .frame(width: 250, height: 250)
                 .clipShape(Circle())
-                .overlay(Circle().stroke(Color.white, lineWidth: 4))
                 .shadow(radius: 10)
                 .padding(.bottom, 50)
-            
+        
             VStack(alignment: .leading, spacing: 15) {
+                TextField("Email", text: self.$email)
+                    .padding()
+                    .background(Color.themeTextField)
+                    .cornerRadius(20.0)
+                    .shadow(radius: 10.0, x: 20, y: 10)
                 
-                CustomTextField(
-                    label: "email",
-                    text: self.$email,
-                    focusable: $fieldFocus,
-                    tag: 0
-                ).padding()
-                 .background(Color.themeTextField)
-                 .cornerRadius(20)
-                 .foregroundColor(.black)
-                 .frame(height: 60)
-                
-                CustomTextField(
-                    label: "password",
-                    text: self.$password,
-                    focusable: $fieldFocus,
-                    isSecureTextEntry: $isSecureTextEntry,
-                    tag: 1
-                ).padding()
-                 .background(Color.themeTextField)
-                 .cornerRadius(20)
-                 .foregroundColor(.black)
-                 .frame(height: 60)
+                SecureField("Password", text: self.$password)
+                    .padding()
+                    .background(Color.themeTextField)
+                    .cornerRadius(20.0)
+                    .shadow(radius: 10.0, x: 20, y: 10)
                 
                 VStack(alignment: .trailing, spacing: 40) {
                     Text(LocalizedStringKey("forgot_password"))
+                        .foregroundColor(.white)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
                 
-            }.padding([.leading, .trailing], 27.5)
+        }.padding([.leading, .trailing], 27.5)
             
             Button(action: signInTapped) {
                 Text(LocalizedStringKey("signin"))
@@ -91,27 +80,17 @@ struct LoginView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(width: 300, height: 50)
-                    .background(Color.themePrimaryColor)
+                    .background(Color.darkOrange)
                     .cornerRadius(15.0)
             }
             
-          /*  NavigationLink(destination: ArticleListView(), isActive: $isActive) {
-                Button(action: signInTapped) {
-                      Text(LocalizedStringKey("signin"))
-                          .font(.title2)
-                          .foregroundColor(.white)
-                          .padding()
-                          .frame(width: 300, height: 50)
-                          .background(Color.themePrimaryColor)
-                          .cornerRadius(15.0)
-                            }
-            }*/
             Spacer()
             
            
             HStack(spacing: 5) {
              
                 Text(LocalizedStringKey("donot_have_account"))
+                    .foregroundColor(.white)
                 Button(LocalizedStringKey("signup")) {
                     isSignup = true
                 }.foregroundColor(.white)
@@ -122,7 +101,7 @@ struct LoginView: View {
             }
         }
         .background(
-            LinearGradient(gradient: appGradientColor, startPoint: .center, endPoint: .bottom)
+            LinearGradient(gradient: appGradientColor, startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))
         
     }

@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     @EnvironmentObject var loginViewModel: LoginViewModel
     var body: some View {
-        NavigationView {
-            if (loginViewModel.isLoggedin) as! Bool {
-                LoginView()
-            } else {
-               ArticleListView()
-            }
-        }.accentColor(.black)
+        if (loginViewModel.isLoggedin) as! Bool {
+            LoginView()
+        } else {
+            ArticleListView()
+        }
     }
 }
 
