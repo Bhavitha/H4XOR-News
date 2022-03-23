@@ -7,23 +7,21 @@
 
 import Foundation
 import FirebaseFirestore
-//import FirebaseFirestoreSwift
-
 
 class FirestoreViewModel: ObservableObject {
     
-   // @Published var history = [History]()
+    @Published var articles = [String]()
     let db = Firestore.firestore()
     
     func save(selectedNews: NSMutableDictionary) {
         
         guard let emailId = UserDefaults.standard.value(forKey: "email") as? String,
-              let selectedNews =  selectedNews as? [String: Any] else {
+              let selectedNews =  selectedNews as? [String:String] else {
             print("email id is nil")
             return
         }
         db.collection(emailId).document("news").collection("selected").addDocument(data: selectedNews) { err in
-                if let err = err {
+                if err != nil {
                     print("Error saving data to firestore")
                 } else {
                    print("Document successfully written!")
@@ -31,32 +29,23 @@ class FirestoreViewModel: ObservableObject {
             }
     }
     
-    func getData(deviceName: String) {
+    func loadVisitedArticles() {
         
         
-      /*  guard let emailId = UserDefaults.standard.value(forKey: HealthTrackerConstants.EMAIL_ID) as? String else {
-            AppLogger.shared.error("email id is nil", module: HealthTrackerConstants.HISTORY)
+        guard let emailId = UserDefaults.standard.value(forKey: "email") as? String else {
+           print("email id is nil")
             return
         }
-        
-        
-        db.collection(emailId).document(HealthTrackerConstants.HISTORY).collection(deviceName)
+                
+        db.collection(emailId).document("news").collection("visited")
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        do {
-                            let jsonData: NSData = try JSONSerialization.data(withJSONObject: document.data(), options: JSONSerialization.WritingOptions.prettyPrinted) as NSData
-                            let history = try JSONDecoder().decode(History.self, from: jsonData as Data)
-                            self.history.append(history)
-                        }
-                        catch {
-                            print("Error reading document: \(error)")
-                        }
-                        
+                        self.articles.append(document.get("id") as! String)
                     }
                 }
-        }*/
+        }
     }
 }

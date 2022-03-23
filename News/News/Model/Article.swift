@@ -82,3 +82,7 @@ struct Url : Codable {
     let matchLevel : String?
     let matchedWords : [String]?
 }
+
+struct SelectedArticle: Codable {
+    let id: String?   
+}
