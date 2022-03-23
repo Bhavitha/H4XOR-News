@@ -25,10 +25,9 @@ class ArticleViewModel: ObservableObject, ArticleViewModelDelegate {
     private(set) var articles = [Hits]()
     private var cancellables = Set<AnyCancellable>()
     @Published private(set) var state: ResultState = .loading
-    
+   
     init(service: ArticleAPIService) {
-        self.service = service
-        
+        self.service = service        
     }
     
     func loadArticles() {
@@ -42,10 +41,11 @@ class ArticleViewModel: ObservableObject, ArticleViewModelDelegate {
                     self.state = .success(content: self.articles)
                 }
             } receiveValue: { response in
-                self.articles = response.hits!
+                guard let articles =  response.hits  else {
+                    return
+                }
+                self.articles = articles
             }
         self.cancellables.insert(cancellable)
-                        
-    }
-    
+    }    
 }

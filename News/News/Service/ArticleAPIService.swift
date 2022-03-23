@@ -19,8 +19,6 @@ class ArticleAPIService: ArticleAPIServiceDelegate {
     func request(from endpoint: ArticleAPI) -> AnyPublisher<Article, APIError> {
     
         let jsonDecoder = JSONDecoder()
-        jsonDecoder.dateDecodingStrategy = .iso8601
-        
         return URLSession.shared
             .dataTaskPublisher(for: endpoint.urlRequest)
             .receive(on: DispatchQueue.main)
@@ -42,11 +40,5 @@ class ArticleAPIService: ArticleAPIServiceDelegate {
                             .eraseToAnyPublisher()
                 }
             }.eraseToAnyPublisher()
-        
-                         
     }
-    
-    
-    
-    
 }

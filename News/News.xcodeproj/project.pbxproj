@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BEBAA30C2B897D17613F1792 /* Pods_News_NewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B206E334078EBC377E9A7B15 /* Pods_News_NewsUITests.framework */; };
+		CA415B7C27EA3E0F007D01C2 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA415B7B27EA3E0F007D01C2 /* Date+Extension.swift */; };
+		CA415B7F27EABE80007D01C2 /* FirestoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA415B7E27EABE80007D01C2 /* FirestoreViewModel.swift */; };
 		CABFA42527E8E7680007B67F /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA42427E8E7680007B67F /* NewsApp.swift */; };
 		CABFA42927E8E76A0007B67F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABFA42827E8E76A0007B67F /* Assets.xcassets */; };
 		CABFA42C27E8E76A0007B67F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABFA42B27E8E76A0007B67F /* Preview Assets.xcassets */; };
@@ -22,7 +24,7 @@
 		CABFA46327E8F0420007B67F /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA46227E8F0420007B67F /* AuthDelegate.swift */; };
 		CABFA46527E8F0700007B67F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA46427E8F0700007B67F /* AuthManager.swift */; };
 		CABFA46727E8F0A20007B67F /* AuthFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA46627E8F0A20007B67F /* AuthFirebase.swift */; };
-		CABFA46E27E8FA160007B67F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA46D27E8FA160007B67F /* NetworkError.swift */; };
+		CABFA46E27E8FA160007B67F /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA46D27E8FA160007B67F /* APIError.swift */; };
 		CABFA47027E8FBE30007B67F /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA46F27E8FBE30007B67F /* ArticleView.swift */; };
 		CABFA47227E8FC310007B67F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA47127E8FC310007B67F /* Article.swift */; };
 		CABFA47427E900D60007B67F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CABFA47327E900D60007B67F /* GoogleService-Info.plist */; };
@@ -63,6 +65,8 @@
 		AB29DB2C778880D2CCF89030 /* Pods-News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.debug.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.debug.xcconfig"; sourceTree = "<group>"; };
 		B206E334078EBC377E9A7B15 /* Pods_News_NewsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_NewsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD64A160D9D6DCCFC000D54 /* Pods_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA415B7B27EA3E0F007D01C2 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CA415B7E27EABE80007D01C2 /* FirestoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreViewModel.swift; sourceTree = "<group>"; };
 		CABFA42127E8E7680007B67F /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABFA42427E8E7680007B67F /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		CABFA42827E8E76A0007B67F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,7 +84,7 @@
 		CABFA46227E8F0420007B67F /* AuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegate.swift; sourceTree = "<group>"; };
 		CABFA46427E8F0700007B67F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		CABFA46627E8F0A20007B67F /* AuthFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFirebase.swift; sourceTree = "<group>"; };
-		CABFA46D27E8FA160007B67F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		CABFA46D27E8FA160007B67F /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		CABFA46F27E8FBE30007B67F /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		CABFA47127E8FC310007B67F /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		CABFA47327E900D60007B67F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -135,6 +139,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CA415B7D27EABE40007D01C2 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				CA415B7E27EABE80007D01C2 /* FirestoreViewModel.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
 		CABFA41827E8E7680007B67F = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +173,7 @@
 		CABFA42327E8E7680007B67F /* News */ = {
 			isa = PBXGroup;
 			children = (
+				CA415B7D27EABE40007D01C2 /* Firestore */,
 				CABFA47F27E9BCE00007B67F /* Endpoint */,
 				CABFA46C27E8F9FB0007B67F /* Enum */,
 				CABFA46B27E8F9E40007B67F /* Service */,
@@ -217,6 +230,7 @@
 			children = (
 				CABFA45B27E8EB3D0007B67F /* Color+Extension.swift */,
 				CABFA45D27E8ED930007B67F /* String+Extension.swift */,
+				CA415B7B27EA3E0F007D01C2 /* Date+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -270,7 +284,7 @@
 		CABFA46C27E8F9FB0007B67F /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				CABFA46D27E8FA160007B67F /* NetworkError.swift */,
+				CABFA46D27E8FA160007B67F /* APIError.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -540,17 +554,19 @@
 				CABFA46527E8F0700007B67F /* AuthManager.swift in Sources */,
 				CABFA47827E961E60007B67F /* ArticleAPIService.swift in Sources */,
 				CABFA48127E9BCFE0007B67F /* ArticleEndPoint.swift in Sources */,
+				CA415B7F27EABE80007D01C2 /* FirestoreViewModel.swift in Sources */,
 				CABFA45C27E8EB3D0007B67F /* Color+Extension.swift in Sources */,
 				CABFA45227E8E8340007B67F /* LoginView.swift in Sources */,
 				CABFA45E27E8ED930007B67F /* String+Extension.swift in Sources */,
 				CABFA46327E8F0420007B67F /* AuthDelegate.swift in Sources */,
 				CABFA48327E9D0380007B67F /* LoginViewModel.swift in Sources */,
-				CABFA46E27E8FA160007B67F /* NetworkError.swift in Sources */,
+				CABFA46E27E8FA160007B67F /* APIError.swift in Sources */,
 				CABFA47E27E9BB890007B67F /* ErrorView.swift in Sources */,
 				CABFA47027E8FBE30007B67F /* ArticleView.swift in Sources */,
 				CABFA48527E9D5BC0007B67F /* ContentView.swift in Sources */,
 				CABFA47627E95C5D0007B67F /* ArticleViewModel.swift in Sources */,
 				CABFA46727E8F0A20007B67F /* AuthFirebase.swift in Sources */,
+				CA415B7C27EA3E0F007D01C2 /* Date+Extension.swift in Sources */,
 				CABFA42527E8E7680007B67F /* NewsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,6 +747,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -760,6 +777,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

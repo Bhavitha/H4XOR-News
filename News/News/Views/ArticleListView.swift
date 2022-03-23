@@ -13,6 +13,8 @@ struct ArticleListView: View {
     
     @Environment(\.openURL) var openURL
     @StateObject var viewModel: ArticleViewModel = ArticleViewModel(service: ArticleAPIService())
+    @State private var selectedRow: String?
+    var selectedArticles = NSMutableDictionary()
     var body: some View {
         
         Group {
@@ -26,8 +28,13 @@ struct ArticleListView: View {
                     List(content) { article in
                         ArticleView(article: article)
                             .onTapGesture {
+                                selectedRow = article.objectID
                                 load(url: article.url)
-                            }
+                                selectedArticles.setValue(article.points, forKey: "points")
+                                selectedArticles.setValue(article.title, forKey: "title")
+                                selectedArticles.setValue(article.url, forKey: "url")
+                                FirestoreViewModel().save(selectedNews: selectedArticles)
+                            }.listRowBackground(selectedRow == article.objectID ? Color.gray : Color.white)
                     }
                     .navigationBarTitle("H4XOR NEWS")
             }

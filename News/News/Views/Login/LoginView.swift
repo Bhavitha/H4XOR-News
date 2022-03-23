@@ -45,7 +45,7 @@ struct LoginView: View {
                 .padding([.top, .bottom], 40)
 
             
-            Image("\(LocalizedStringKey("logo"))")
+            Image("logo")
                 .foregroundColor(.red)
                 .frame(width: 250, height: 250)
                 .clipShape(Circle())
@@ -85,7 +85,7 @@ struct LoginView: View {
                 
             }.padding([.leading, .trailing], 27.5)
             
-         /*   Button(action: signInTapped) {
+            Button(action: signInTapped) {
                 Text(LocalizedStringKey("signin"))
                     .font(.title2)
                     .foregroundColor(.white)
@@ -93,9 +93,9 @@ struct LoginView: View {
                     .frame(width: 300, height: 50)
                     .background(Color.themePrimaryColor)
                     .cornerRadius(15.0)
-            }*/
+            }
             
-            NavigationLink(destination: ArticleListView(), isActive: $isActive) {
+          /*  NavigationLink(destination: ArticleListView(), isActive: $isActive) {
                 Button(action: signInTapped) {
                       Text(LocalizedStringKey("signin"))
                           .font(.title2)
@@ -105,7 +105,7 @@ struct LoginView: View {
                           .background(Color.themePrimaryColor)
                           .cornerRadius(15.0)
                             }
-            }
+            }*/
             Spacer()
             
            
@@ -136,9 +136,9 @@ struct LoginView: View {
                 switch result {
                 case .success(_):
                     DispatchQueue.main.async {
-                     //   UserDefaults.standard.set(self.email, forKey: LocalizedStringKey("email"))
+                        UserDefaults.standard.set(self.email, forKey: "email")
                         loginViewModel.isLoggedin = false
-                        isActive = true
+                       // isActive = true
                         UserDefaults.standard.set(false, forKey: "isLoggedIn")
                     }
                     
