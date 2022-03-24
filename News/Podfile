@@ -10,7 +10,8 @@ target 'News' do
   
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
- 
+  pod 'Firebase/Database'
+  
   target 'NewsTests' do
     inherit! :search_paths
     # Pods for testing

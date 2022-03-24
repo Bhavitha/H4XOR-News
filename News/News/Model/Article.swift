@@ -84,5 +84,8 @@ struct Url : Codable {
 }
 
 struct SelectedArticle: Codable {
-    let id: String?   
+    let id: String?
+    let title : String?
+    let url : String?
+    let points : Int?
 }

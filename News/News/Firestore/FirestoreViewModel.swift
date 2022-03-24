@@ -10,17 +10,17 @@ import FirebaseFirestore
 
 class FirestoreViewModel: ObservableObject {
     
-    @Published var articles = [String]()
+    @Published var articles = [SelectedArticle]()
     let db = Firestore.firestore()
     
     func save(selectedNews: NSMutableDictionary) {
         
         guard let emailId = UserDefaults.standard.value(forKey: "email") as? String,
-              let selectedNews =  selectedNews as? [String:String] else {
+              let selectedNews =  selectedNews as? [String:Any] else {
             print("email id is nil")
             return
         }
-        db.collection(emailId).document("news").collection("selected").addDocument(data: selectedNews) { err in
+        db.collection(emailId).addDocument(data: selectedNews) { err in
                 if err != nil {
                     print("Error saving data to firestore")
                 } else {
@@ -37,13 +37,15 @@ class FirestoreViewModel: ObservableObject {
             return
         }
                 
-        db.collection(emailId).document("news").collection("visited")
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        self.articles.append(document.get("id") as! String)
+        db.collection(emailId).getDocuments { snapshot, error in
+            guard let err = error else {
+                fatalError("error")
+            }
+                if let snapshot = snapshot {
+                    
+                    self.articles = snapshot.documents.map { article in
+                        return SelectedArticle(id: article["id"] as? String ?? "", title: article["title"] as? String ?? "", url: article["url"] as? String ?? "", points: article["points"] as? Int ?? 0)
+                    
                     }
                 }
         }

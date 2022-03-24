@@ -13,7 +13,7 @@ struct ArticleListView: View {
     
     @Environment(\.openURL) var openURL
     @StateObject var viewModel: ArticleViewModel = ArticleViewModel(service: ArticleAPIService())
-    @ObservedObject var model = FirestoreViewModel()
+   
     var selectedArticles = NSMutableDictionary()
     @State private var alert: PopAlert?
     @EnvironmentObject var loginViewModel: LoginViewModel
@@ -26,16 +26,22 @@ struct ArticleListView: View {
             case .loading:
                 ProgressView()
             case .failed(let error):
-                ProgressView()
+                ErrorView()
             case .success(let content):
                 NavigationView {
                     List(content) { article in
                         ArticleView(article: article)
                             .onTapGesture {
                                 load(url: article.url)
-                                selectedArticles.setValue  ("\(article.id)", forKey: "id")
-                                FirestoreViewModel().save(selectedNews: selectedArticles)
+                                FirebaseDB().save(value: "\(article.id)")
+                                
+                               /* selectedArticles.setValue("\(article.id)", forKey: "id")
+                                selectedArticles.setValue(article.title, forKey: "title")
+                                selectedArticles.setValue(article.url, forKey: "url")
+                                selectedArticles.setValue(article.points, forKey:"points")
+                                FirestoreViewModel().save(selectedNews: selectedArticles)*/
                             }
+                           
                     }
                     
                     .alert(item: $alert) { value in
@@ -56,6 +62,7 @@ struct ArticleListView: View {
         }
         .onAppear {
             self.viewModel.loadArticles()
+            FirebaseDB().read()
            // FirestoreViewModel().loadVisitedArticles()
         }
     }

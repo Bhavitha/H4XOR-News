@@ -42,16 +42,9 @@ struct LoginView: View {
         VStack() {
             Text(LocalizedStringKey("hacker_news"))
                 .font(.largeTitle).foregroundColor(.white)
-                .padding([.top, .bottom], 40)
+                .padding([.top, .bottom], 100)
                 .shadow(radius: 10.0, x: 20, y: 10)
-            
-            Image("logo")
-                .resizable()
-                .foregroundColor(.red)
-                .frame(width: 250, height: 250)
-                .clipShape(Circle())
-                .shadow(radius: 10)
-                .padding(.bottom, 50)
+          
         
             VStack(alignment: .leading, spacing: 15) {
                 TextField("Email", text: self.$email)
@@ -117,7 +110,6 @@ struct LoginView: View {
                     DispatchQueue.main.async {
                         UserDefaults.standard.set(self.email, forKey: "email")
                         loginViewModel.isLoggedin = false
-                       // isActive = true
                         UserDefaults.standard.set(false, forKey: "isLoggedIn")
                     }
                     
