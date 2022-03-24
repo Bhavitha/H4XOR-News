@@ -11,13 +11,10 @@ import SwiftUI
 
 struct ArticleListView: View {
     
-    @Environment(\.openURL) var openURL
     @StateObject var viewModel: ArticleViewModel = ArticleViewModel(service: ArticleAPIService())
-
     @State private var alert: PopAlert?
     @EnvironmentObject var loginViewModel: LoginViewModel
- //   @ObservedObject var model: FirebaseDB
-    
+    @Environment(\.openURL) var openURL
     @State var articles = [String]()
     
     var body: some View {
@@ -31,48 +28,51 @@ struct ArticleListView: View {
                 ErrorView()
             case .success(let content):
                 NavigationView {
-                    List(content) { article in
-                        ArticleView(article: article)
-                            .onTapGesture {
-                                load(url: article.url)
-                                FirebaseDB().save(value: "\(article.id)")
-                            }
-                       
-                            .listRowBackground(articles.contains("\(article.id)") ? Color.gray : Color.white)
-                           
+                    List {
+                        ForEach(content) { article in
+                            
+                            ArticleView(article: article)
+                                .onTapGesture {
+                                    load(url: article.url)
+                                    DatabaseManager().save(value: article.objectID ?? "0")
+                                } 
+                            
+                                .listRowBackground(self.articles.contains(article.objectID ?? "0") ? Color.gray : Color.white)
+                        }
+                        
                     }
                     
                     .alert(item: $alert) { value in
                         Alert(title: Text(value.title), message: Text(value.message), dismissButton: .default(Text("got it")) {
                             loginViewModel.isLoggedin = true
                             UserDefaults.standard.set(true, forKey: "isLoggedin")
-                      })            }
+                        })            }
                     .toolbar {
-                        Button("Signout") {
+                        Button(LocalizedStringKey("Signout")) {
                             signOut()
                         }
                     }
-                  
-                    .navigationBarTitle("H4XOR NEWS")
+                    
+                    .navigationBarTitle(LocalizedStringKey("title"))
                 }
             }
             
         }
         .onAppear {
-            FirebaseDB().read { article in
+            DatabaseManager().read { article in
                 articles = article
             }
             self.viewModel.loadArticles()
-
+            
         }
     }
-        
+    
     
     func load(url: String?) {
         guard let urlString = url,
               let  url = URL(string: urlString) else {
-            return
-        }
+                  return
+              }
         openURL(url)
     }
     
@@ -81,15 +81,11 @@ struct ArticleListView: View {
             
             switch result {
             case .success(_):
-                DispatchQueue.main.async {
-                    alert = PopAlert(title: "signout", message: "signout success")
-                }
+                alert = PopAlert(title:"signout", message: "signout success")
             case .failure(_):
-                DispatchQueue.main.async {
-                    alert = PopAlert(title:"signout", message: "signout failed")
-                }
+                alert = PopAlert(title:"signout", message: "signout failed")
             }
         }
     }
-
+    
 }

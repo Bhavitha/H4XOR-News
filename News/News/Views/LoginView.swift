@@ -36,9 +36,10 @@ struct LoginView: View {
     @State private var isActive = false
     @EnvironmentObject var loginViewModel: LoginViewModel
     
-    let appGradientColor = Gradient(colors: [Color.primaryColor, Color.secondaryColor, Color.primaryColor])
+    let appGradientColor = Gradient(colors: [Color.primaryColor, Color.secondaryColor])
     
     var body: some View {
+    
         VStack() {
             Text(LocalizedStringKey("hacker_news"))
                 .font(.largeTitle).foregroundColor(.white)
@@ -92,6 +93,7 @@ struct LoginView: View {
             .alert(item: $alert) { value in
                 Alert(title: Text(value.title), message: Text(value.message), dismissButton: .cancel())
             }
+        
         }
         .background(
             LinearGradient(gradient: appGradientColor, startPoint: .top, endPoint: .bottom)
@@ -132,10 +134,7 @@ struct LoginView: View {
     }
     
     func login() throws {
-        
-        email = "bhavitha@gmail.com"
-        password = "bhavu46t7rrev"
-        
+ 
         if email.isEmpty || password.isEmpty {
             throw AuthError.invalidInput
         }
@@ -149,7 +148,6 @@ struct LoginView: View {
         }
         
     }
-    
         
 }
 

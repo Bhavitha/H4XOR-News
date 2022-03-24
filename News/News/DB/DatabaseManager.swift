@@ -1,5 +1,5 @@
 //
-//  FirebaseDB.swift
+//  DatabaseManager.swift
 //  News
 //
 //  Created by Bhavitha on 23/03/22.
@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-class FirebaseDB: ObservableObject {
+class DatabaseManager: ObservableObject {
     
     private let database = Database.database().reference()
     var ref: DatabaseReference!
