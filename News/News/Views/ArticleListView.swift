@@ -57,7 +57,7 @@ struct ArticleListView: View {
                 }
             }
             
-        }
+        }        
         .onAppear {
             DatabaseManager().read { article in
                 articles = article

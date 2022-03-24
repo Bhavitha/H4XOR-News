@@ -36,7 +36,7 @@ struct LoginView: View {
     @State private var isActive = false
     @EnvironmentObject var loginViewModel: LoginViewModel
     
-    let appGradientColor = Gradient(colors: [Color.primaryColor, Color.secondaryColor])
+    let appGradientColor = Gradient(colors: [.purple, .blue])
     
     var body: some View {
     
@@ -74,7 +74,7 @@ struct LoginView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(width: 300, height: 50)
-                    .background(Color.darkOrange)
+                    .background(Color.green)
                     .cornerRadius(15.0)
             }
             
@@ -96,7 +96,7 @@ struct LoginView: View {
         
         }
         .background(
-            LinearGradient(gradient: appGradientColor, startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))
         
     }

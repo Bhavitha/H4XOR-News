@@ -19,8 +19,8 @@
 "error" = "Error";
 "invalid_email" = "Invalid Email";
 "invalid_password" = "Invalid Password";
-"invalid input"= "Invalid Input";
-"invalid data" = "Invalid Details";
+"invalid_input"= "Invalid Input";
+"invalid_data" = "Invalid Details";
 "signout" = "Signout";
 "signout_success" = "Signout Success";
 "signout_failure" = "Singout Failed";
