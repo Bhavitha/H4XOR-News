@@ -22,6 +22,7 @@ struct ArticleView: View {
         return Calendar.current.isDate(articleCreatedDate , equalTo: Date(), toGranularity: .day)
 
     }
+
     var body: some View {
     
         VStack(alignment: .leading, spacing: 4) {
@@ -36,7 +37,7 @@ struct ArticleView: View {
                     .font(.system(size: 18, weight:  .semibold))
             }
         }
-    }
+        }
 }
 
 /*struct ArticleView_Previews: PreviewProvider {

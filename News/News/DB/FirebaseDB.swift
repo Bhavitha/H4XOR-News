@@ -17,25 +17,33 @@ class FirebaseDB: ObservableObject {
     var articleIds = [String]()
     
     func save(value: String) {
-        //database.child("articleId").setValue(articleIds)
         self.articleIds.removeAll()
         database.child("articleId").observe(DataEventType.value, with: { snapshot in
-            self.articleIds = (snapshot.value as? [String])!
-            if !self.articleIds.contains(value) {
-                self.articleIds.append(value)
-            }
-            self.database.child("articleId").setValue(self.articleIds)
-        })
-    }
-    
-    func read() {
-        database.child("articleId").observe(DataEventType.value, with: { snapshot in
-            self.selectdItems = (snapshot.value as? [String])!
             
+            if snapshot.value as? [String] == nil {
+                self.articleIds.append(value)
+                self.database.child("articleId").setValue(self.articleIds)
+            } else {
+                self.articleIds = (snapshot.value as? [String])!
+                if !self.articleIds.contains(value) {
+                    self.articleIds.append(value)
+                }
+                self.database.child("articleId").setValue(self.articleIds)
+            }
         })
-        
     }
     
+    func read(completion: @escaping (([String]) -> Void))  {
+        
+        database.child("articleId").observe(DataEventType.value, with: { snapshot in
+            guard let snapshot =  snapshot.value as? [String]  else {
+                completion([])
+                return                
+            }
+            self.selectdItems = snapshot
+            completion(self.selectdItems)
+        })
+    }
 }
 
 

@@ -16,7 +16,9 @@ struct ArticleListView: View {
 
     @State private var alert: PopAlert?
     @EnvironmentObject var loginViewModel: LoginViewModel
-    @ObservedObject var model = FirebaseDB()
+ //   @ObservedObject var model: FirebaseDB
+    
+    @State var articles = [String]()
     
     var body: some View {
         
@@ -25,7 +27,7 @@ struct ArticleListView: View {
             switch viewModel.state {
             case .loading:
                 ProgressView()
-            case .failed(let error):
+            case .failed:
                 ErrorView()
             case .success(let content):
                 NavigationView {
@@ -36,7 +38,7 @@ struct ArticleListView: View {
                                 FirebaseDB().save(value: "\(article.id)")
                             }
                        
-                            .listRowBackground(model.selectdItems.contains("\(article.id)") ? Color.gray : Color.white)
+                            .listRowBackground(articles.contains("\(article.id)") ? Color.gray : Color.white)
                            
                     }
                     
@@ -57,8 +59,10 @@ struct ArticleListView: View {
             
         }
         .onAppear {
+            FirebaseDB().read { article in
+                articles = article
+            }
             self.viewModel.loadArticles()
-            FirebaseDB().read()
 
         }
     }

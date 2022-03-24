@@ -16,7 +16,7 @@ protocol ArticleViewModelDelegate {
 enum ResultState {
     case loading
     case success(content: [Hits])
-    case failed(error: Error)
+    case failed
 }
 
 class ArticleViewModel: ObservableObject, ArticleViewModelDelegate {
@@ -36,7 +36,7 @@ class ArticleViewModel: ObservableObject, ArticleViewModelDelegate {
             .sink { (response) in
                 switch response {
                 case .failure(let error):
-                    self.state = .failed(error: error)
+                    self.state = .failed
                 case .finished:
                     self.state = .success(content: self.articles)
                 }
