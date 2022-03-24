@@ -13,10 +13,10 @@ struct ArticleListView: View {
     
     @Environment(\.openURL) var openURL
     @StateObject var viewModel: ArticleViewModel = ArticleViewModel(service: ArticleAPIService())
-   
-    var selectedArticles = NSMutableDictionary()
+
     @State private var alert: PopAlert?
     @EnvironmentObject var loginViewModel: LoginViewModel
+    @ObservedObject var model = FirebaseDB()
     
     var body: some View {
         
@@ -34,13 +34,9 @@ struct ArticleListView: View {
                             .onTapGesture {
                                 load(url: article.url)
                                 FirebaseDB().save(value: "\(article.id)")
-                                
-                               /* selectedArticles.setValue("\(article.id)", forKey: "id")
-                                selectedArticles.setValue(article.title, forKey: "title")
-                                selectedArticles.setValue(article.url, forKey: "url")
-                                selectedArticles.setValue(article.points, forKey:"points")
-                                FirestoreViewModel().save(selectedNews: selectedArticles)*/
                             }
+                       
+                            .listRowBackground(model.selectdItems.contains("\(article.id)") ? Color.gray : Color.white)
                            
                     }
                     
@@ -63,7 +59,7 @@ struct ArticleListView: View {
         .onAppear {
             self.viewModel.loadArticles()
             FirebaseDB().read()
-           // FirestoreViewModel().loadVisitedArticles()
+
         }
     }
         

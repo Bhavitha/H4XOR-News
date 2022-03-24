@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct ArticleView: View {
-    
-    @ObservedObject var model = FirebaseDB()
-    @ObservedObject var db = FirestoreViewModel()
-    
+        
     let article: Hits
     private var useRedText: Bool {
         
@@ -38,16 +35,7 @@ struct ArticleView: View {
                     .foregroundColor(useRedText ? .red : .black)
                     .font(.system(size: 18, weight:  .semibold))
             }
-            .background(model.selectdItem.contains("\(article.id)") ? Color.gray : Color.white)
-            
-          //  .background(db.articles.contains(where: "\(article.id)") ? Color.gray : Color.white)
-            
         }
-        .onAppear() {
-            FirebaseDB().read()
-          //  FirestoreViewModel().loadVisitedArticles()
-        }
-        
     }
 }
 

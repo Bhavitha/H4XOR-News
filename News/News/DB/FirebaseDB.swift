@@ -12,7 +12,7 @@ class FirebaseDB: ObservableObject {
     
     private let database = Database.database().reference()
     var ref: DatabaseReference!
-    @Published var selectdItem = [String]()
+    @Published var selectdItems = [String]()
     var saveItems = [String]()
     var articleIds = [String]()
     
@@ -29,14 +29,11 @@ class FirebaseDB: ObservableObject {
     }
     
     func read() {
-        // ref = Database.database().reference()
-        //database.child("articleId").observeSingleEvent(of: .value, with: { (snapshot) in
-        //if let id = snapshot.value as? String {
-        //print("The value from the database: \(id)")
-           // self.selectdItem.append(id)
-           
-        //}
-        //})
+        database.child("articleId").observe(DataEventType.value, with: { snapshot in
+            self.selectdItems = (snapshot.value as? [String])!
+            
+        })
+        
     }
     
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BEBAA30C2B897D17613F1792 /* Pods_News_NewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B206E334078EBC377E9A7B15 /* Pods_News_NewsUITests.framework */; };
 		CA415B7C27EA3E0F007D01C2 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA415B7B27EA3E0F007D01C2 /* Date+Extension.swift */; };
-		CA415B7F27EABE80007D01C2 /* FirestoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA415B7E27EABE80007D01C2 /* FirestoreViewModel.swift */; };
 		CA415B8427EBA23D007D01C2 /* FirebaseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA415B8327EBA23D007D01C2 /* FirebaseDB.swift */; };
 		CABFA42527E8E7680007B67F /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA42427E8E7680007B67F /* NewsApp.swift */; };
 		CABFA42927E8E76A0007B67F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABFA42827E8E76A0007B67F /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 		CABFA44027E8E76A0007B67F /* NewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA43F27E8E76A0007B67F /* NewsUITests.swift */; };
 		CABFA44227E8E76A0007B67F /* NewsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA44127E8E76A0007B67F /* NewsUITestsLaunchTests.swift */; };
 		CABFA45227E8E8340007B67F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA45127E8E8340007B67F /* LoginView.swift */; };
-		CABFA45427E8E88E0007B67F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA45327E8E88E0007B67F /* CustomTextField.swift */; };
 		CABFA45727E8EA4F0007B67F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CABFA45927E8EA4F0007B67F /* Localizable.strings */; };
 		CABFA45C27E8EB3D0007B67F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA45B27E8EB3D0007B67F /* Color+Extension.swift */; };
 		CABFA45E27E8ED930007B67F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA45D27E8ED930007B67F /* String+Extension.swift */; };
@@ -67,7 +65,6 @@
 		B206E334078EBC377E9A7B15 /* Pods_News_NewsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_NewsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD64A160D9D6DCCFC000D54 /* Pods_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA415B7B27EA3E0F007D01C2 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		CA415B7E27EABE80007D01C2 /* FirestoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreViewModel.swift; sourceTree = "<group>"; };
 		CA415B8327EBA23D007D01C2 /* FirebaseDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDB.swift; sourceTree = "<group>"; };
 		CABFA42127E8E7680007B67F /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABFA42427E8E7680007B67F /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
@@ -79,7 +76,6 @@
 		CABFA43F27E8E76A0007B67F /* NewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUITests.swift; sourceTree = "<group>"; };
 		CABFA44127E8E76A0007B67F /* NewsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CABFA45127E8E8340007B67F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		CABFA45327E8E88E0007B67F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CABFA45827E8EA4F0007B67F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CABFA45B27E8EB3D0007B67F /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		CABFA45D27E8ED930007B67F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -141,14 +137,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		CA415B7D27EABE40007D01C2 /* Firestore */ = {
-			isa = PBXGroup;
-			children = (
-				CA415B7E27EABE80007D01C2 /* FirestoreViewModel.swift */,
-			);
-			path = Firestore;
-			sourceTree = "<group>";
-		};
 		CA415B8227EBA213007D01C2 /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				CA415B8227EBA213007D01C2 /* DB */,
-				CA415B7D27EABE40007D01C2 /* Firestore */,
 				CABFA47F27E9BCE00007B67F /* Endpoint */,
 				CABFA46C27E8F9FB0007B67F /* Enum */,
 				CABFA46B27E8F9E40007B67F /* Service */,
@@ -227,15 +214,6 @@
 			path = NewsUITests;
 			sourceTree = "<group>";
 		};
-		CABFA44E27E8E7980007B67F /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				CABFA45127E8E8340007B67F /* LoginView.swift */,
-				CABFA45327E8E88E0007B67F /* CustomTextField.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
 		CABFA45A27E8EB2B0007B67F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,7 +237,7 @@
 		CABFA46827E8F9590007B67F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CABFA44E27E8E7980007B67F /* Login */,
+				CABFA45127E8E8340007B67F /* LoginView.swift */,
 				CABFA46F27E8FBE30007B67F /* ArticleView.swift */,
 				CABFA47927E9A8820007B67F /* ArticleListView.swift */,
 				CABFA47D27E9BB890007B67F /* ErrorView.swift */,
@@ -561,12 +539,10 @@
 			files = (
 				CABFA47227E8FC310007B67F /* Article.swift in Sources */,
 				CABFA47A27E9A8820007B67F /* ArticleListView.swift in Sources */,
-				CABFA45427E8E88E0007B67F /* CustomTextField.swift in Sources */,
 				CABFA46527E8F0700007B67F /* AuthManager.swift in Sources */,
 				CABFA47827E961E60007B67F /* ArticleAPIService.swift in Sources */,
 				CABFA48127E9BCFE0007B67F /* ArticleEndPoint.swift in Sources */,
 				CA415B8427EBA23D007D01C2 /* FirebaseDB.swift in Sources */,
-				CA415B7F27EABE80007D01C2 /* FirestoreViewModel.swift in Sources */,
 				CABFA45C27E8EB3D0007B67F /* Color+Extension.swift in Sources */,
 				CABFA45227E8E8340007B67F /* LoginView.swift in Sources */,
 				CABFA45E27E8ED930007B67F /* String+Extension.swift in Sources */,
