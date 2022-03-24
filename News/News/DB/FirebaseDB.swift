@@ -15,37 +15,17 @@ class FirebaseDB: ObservableObject {
     @Published var selectdItem = [String]()
     var saveItems = [String]()
     var articleIds = [String]()
+    
     func save(value: String) {
-        //database.child("articleId").setValue("")
-        database.child("articleId").observe(.value, with: { (snapshot) in
-            self.articleIds = snapshot.value as? [String] ?? []
-            print(self.articleIds)
-            if self.articleIds == nil {
-                self.articleIds = [String]()
+        //database.child("articleId").setValue(articleIds)
+        self.articleIds.removeAll()
+        database.child("articleId").observe(DataEventType.value, with: { snapshot in
+            self.articleIds = (snapshot.value as? [String])!
+            if !self.articleIds.contains(value) {
+                self.articleIds.append(value)
             }
-            
-            self.articleIds.append(value)
-            print(self.articleIds)
-            //self.database.child("articleId").setValue(articleIds)
-            
-            
+            self.database.child("articleId").setValue(self.articleIds)
         })
-        database.child("articletId").setValue(articleIds)
-        //database.child("articleId").observe(.value, )
-        //saveItems.append(value)
-        //database.child("articleId").setValue("")
-        
-        // ref = Database.database().reference()
-        //database.child("articleId").observeSingleEvent(of: .value, with: { (snapshot) in
-        //if let id = snapshot.value as? String {
-        //print("The value from the database: \(id)")
-           // self.selectdItem.append(id)
-          //  self.saveItems.append(id)
-        //}
-        //})
-        //saveItems.append(value)
-        //self.ref.child("articleId").setValue(saveItems)
-        
     }
     
     func read() {

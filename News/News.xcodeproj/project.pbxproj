@@ -10,6 +10,7 @@
 		BEBAA30C2B897D17613F1792 /* Pods_News_NewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B206E334078EBC377E9A7B15 /* Pods_News_NewsUITests.framework */; };
 		CA415B7C27EA3E0F007D01C2 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA415B7B27EA3E0F007D01C2 /* Date+Extension.swift */; };
 		CA415B7F27EABE80007D01C2 /* FirestoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA415B7E27EABE80007D01C2 /* FirestoreViewModel.swift */; };
+		CA415B8427EBA23D007D01C2 /* FirebaseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA415B8327EBA23D007D01C2 /* FirebaseDB.swift */; };
 		CABFA42527E8E7680007B67F /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFA42427E8E7680007B67F /* NewsApp.swift */; };
 		CABFA42927E8E76A0007B67F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABFA42827E8E76A0007B67F /* Assets.xcassets */; };
 		CABFA42C27E8E76A0007B67F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABFA42B27E8E76A0007B67F /* Preview Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		BDD64A160D9D6DCCFC000D54 /* Pods_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA415B7B27EA3E0F007D01C2 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CA415B7E27EABE80007D01C2 /* FirestoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreViewModel.swift; sourceTree = "<group>"; };
+		CA415B8327EBA23D007D01C2 /* FirebaseDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDB.swift; sourceTree = "<group>"; };
 		CABFA42127E8E7680007B67F /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABFA42427E8E7680007B67F /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		CABFA42827E8E76A0007B67F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 			path = Firestore;
 			sourceTree = "<group>";
 		};
+		CA415B8227EBA213007D01C2 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				CA415B8327EBA23D007D01C2 /* FirebaseDB.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		CABFA41827E8E7680007B67F = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +183,7 @@
 		CABFA42327E8E7680007B67F /* News */ = {
 			isa = PBXGroup;
 			children = (
+				CA415B8227EBA213007D01C2 /* DB */,
 				CA415B7D27EABE40007D01C2 /* Firestore */,
 				CABFA47F27E9BCE00007B67F /* Endpoint */,
 				CABFA46C27E8F9FB0007B67F /* Enum */,
@@ -554,6 +565,7 @@
 				CABFA46527E8F0700007B67F /* AuthManager.swift in Sources */,
 				CABFA47827E961E60007B67F /* ArticleAPIService.swift in Sources */,
 				CABFA48127E9BCFE0007B67F /* ArticleEndPoint.swift in Sources */,
+				CA415B8427EBA23D007D01C2 /* FirebaseDB.swift in Sources */,
 				CA415B7F27EABE80007D01C2 /* FirestoreViewModel.swift in Sources */,
 				CABFA45C27E8EB3D0007B67F /* Color+Extension.swift in Sources */,
 				CABFA45227E8E8340007B67F /* LoginView.swift in Sources */,
