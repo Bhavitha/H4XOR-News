@@ -31,7 +31,6 @@ struct LoginView: View {
     @State private var password = ""
     @State private var isSignup = false
     @State private var alert: PopAlert?
-    @State var fieldFocus = [false, false]
     @State var isSecureTextEntry = true
     @State private var isActive = false
     @EnvironmentObject var loginViewModel: LoginViewModel
